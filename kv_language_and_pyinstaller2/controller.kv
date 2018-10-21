@@ -1,0 +1,47 @@
+#:kivy 1.0
+
+<Controller>:
+    label_wid: my_custom_label
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+
+        Button:
+            size: 300, 50
+            size_hint: (None, None)
+            text: 'My controller info is: ' + root.info
+            on_press: root.do_action()
+
+        Label:
+            size: 300, 50
+            size_hint: (None, None)
+            id: my_custom_label
+            text: 'My label before button press'
+            
+        CheckBox:
+            size: 300, 50
+            size_hint: (None, None)
+            id: my_custom_label
+            
+        DropDown:
+            size: 300, 200
+            size_hint: (None, None)
+            
+            Button:
+                text: 'My first Item'
+                size_hint_y: None
+                height: 44
+            Label:
+                text: 'Unselectable item'
+                size_hint_y: None
+                height: 44
+            Button:
+                text: 'My second Item'
+                size_hint_y: None
+                height: 44
+            
+            
+        Bubble:
+            size: 300, 50
+            size_hint: (None, None)
