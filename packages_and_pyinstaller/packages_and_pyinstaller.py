@@ -4,7 +4,7 @@ Created on 16.10.2018
 @author: schmied
 '''
 
-from auxiliary import printer as pt
+from auxiliary1 import printer as pt
 from auxiliary2 import plotter
 class c_discon_fw_bootstrap():
     '''

@@ -3,7 +3,7 @@ Created on 16.10.2018
 
 @author: schmied
 '''
-from auxiliary.subaux import miniprinter
+from auxiliary1.auxiliary1_1 import miniprinter
 
 
 class c_printer():

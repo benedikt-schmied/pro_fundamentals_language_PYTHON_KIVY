@@ -4,7 +4,7 @@ Created on 16.10.2018
 @author: schmied
 '''
 
-from auxiliary import printer
+from auxiliary1 import printer
 
 class c_plotter():
     '''
