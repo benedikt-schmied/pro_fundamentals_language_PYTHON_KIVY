@@ -23,25 +23,25 @@ assets_toc = []
 tocs = bin_tocs + assets_toc
 
 a = Analysis(['packages_and_pyinstaller\\packages_and_pyinstaller.py'],
-             pathex=[],
-             binaries=None,
-             datas=datas,
-             hiddenimports=hiddenimports,
+             pathex=['packages_and_pyinstaller/'],
+             binaries=[],
+             datas=[],
+             hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
-             excludes=excludes,
+             excludes=[],
              win_no_prefer_redirects=False,
              win_private_assemblies=False,
+             cipher=block_cipher,
+             noarchive=False)
+pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
-
-pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
-
 exe = EXE(pyz,
           a.scripts,
           a.binaries,
           a.zipfiles,
           a.datas,
-          *tocs,
+          [],
           name='packages_and_pyinstaller',
           debug=False,
           bootloader_ignore_signals=False,
