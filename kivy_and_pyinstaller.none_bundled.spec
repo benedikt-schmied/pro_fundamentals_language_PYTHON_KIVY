@@ -31,8 +31,8 @@ assets_toc = [kivy_assets_toc, source_assets_toc]
 
 tocs = bin_tocs + assets_toc
 
-a = Analysis(['discon_fw_bootstrap\\test_ui.py'],
-             pathex=['C:\\projects\\workspace_helpers_PYTHON'],
+a = Analysis(['kivy_and_pyinstaller\\kivy_and_pyinstaller.py'],
+             pathex=[],
              binaries=None,
              datas=datas,
              hiddenimports=hiddenimports,
@@ -47,7 +47,7 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 exe = EXE(pyz,
           a.scripts,
-          name='test_ui',
+          name='kivy_and_pyinstaller',
           exclude_binaries=True,
           debug=False,
           strip=False,
@@ -61,5 +61,5 @@ coll = COLLECT(exe,
                *tocs,
                strip=False,
                upx=True,
-               name='test_ui')
+               name='kivy_and_pyinstaller')
 
