@@ -1,0 +1,59 @@
+#:kivy 1.1.0
+
+<TreeLabel>:
+    on_touch_down:
+        self.parent.browser.path = self.path if\
+        self.collide_point(*args[1].pos) and self.path else\
+        self.parent.browser.path
+    on_is_open: self.is_open and self.parent.trigger_populate(self)
+
+<FS_Browser>:
+    button_success: button_success
+    button_cancel: button_cancel
+
+    orientation: 'vertical'
+    spacing: 5
+    padding: [6, 6, 6, 6]
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 5
+        Splitter:
+            sizable_from: 'right'
+            min_size: '153sp'
+            size_hint: (.2, 1)
+            id: splitter
+            ScrollView:
+                LinkTree:
+                    id: link_tree
+                    browser: list_view
+                    size_hint_y: None
+                    height: self.minimum_height
+                    on_parent: self.fill_tree()
+                    root_options: {'text': 'Laufwerke', 'no_selection':True}
+        BoxLayout:
+            size_hint_x: .8
+            orientation: 'vertical'
+
+            FileChooserListView:
+                id: list_view
+                path: root.path
+                filters: root.filters
+                filter_dirs: root.filter_dirs
+                show_hidden: root.show_hidden
+                multiselect: root.multiselect
+                dirselect: root.dirselect
+                on_submit: root.dispatch('on_success')
+                
+    BoxLayout:
+        size_hint: 1, 0.05
+        Button:
+            id: button_cancel
+            text: "Cancel"
+            on_release: root.dispatch('on_canceled')
+       
+        Button:
+            id: button_success
+            text: "Success"
+            on_release: root.dispatch('on_success')

@@ -1,0 +1,28 @@
+#:kivy 1.1.0
+
+<Dialog_Prior_to_Run>:
+    button_success: button_success
+    button_cancel: button_cancel
+    label_hints: label_hints
+    
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        
+        Label:
+            font_size: 11
+            id: label_hints
+            text: 'empty'
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                id: button_cancel
+                on_release: root.dispatch('on_canceled')
+           
+            Button:
+                text: "Success"
+                id: button_success
+                on_release: root.dispatch('on_success')
